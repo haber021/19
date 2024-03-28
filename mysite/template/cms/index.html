@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid px-lg-4 px-xl-5">
+    <!-- Page Header-->
+    <div class="page-header d-flex justify-content-between align-items-center">
+        <h1 class="page-heading">Posts</h1>
+        <div><a class="btn btn-primary text-uppercase" href="#"> <i class="fa fa-plus me-2"> </i>Add new</a></div>
+    </div>
+    <section class="mb-5">
+        <div class="card card-table">
+            <div class="preload-wrapper">
+                <table class="table table-hover align-middle mb-0" id="postDatatable">
+                    <thead>
+                        <tr>
+                            <th> </th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Categories</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for post in posts %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>  {# Assuming you want a counter #}
+                            <td>{{ post.title }}</td>
+                            <td>{{ post.author }}</td>
+                            <td>{{ post.categories }}</td>
+                            <td>{{ post.date }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock content %}
